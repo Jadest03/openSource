@@ -1,10 +1,10 @@
 def read_data(filename):
     f = open(filename, "r")
     data = []
-    for line in f.readlines():
+    for line in f.readlines(): # 한 줄씩 읽어오기
         if line.strip("\n") != "# midterm (max 125), final (max 100)":
-            data.append([int(word) for word in line.split(",")])
-
+            data.append([int(word) for word in line.split(",")]) # 한 배열을 ,로 구분하여 int형으로 저장
+    f.close()
     return data
 
 
@@ -48,7 +48,7 @@ if __name__ == "__main__":
         average = calc_weighted_average(data, [40 / 125, 60 / 100])
 
         # Write the analysis report as a markdown file
-        with open("lab02/class_score_analysis.md", "w") as report:
+        with open("lab02/lab02.md", "w") as report:
             report.write("### Individual Score\n\n")
             report.write("| Midterm | Final | Total |\n")
             report.write("| ------- | ----- | ----- |\n")
